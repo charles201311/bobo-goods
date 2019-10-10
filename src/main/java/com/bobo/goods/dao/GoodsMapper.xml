@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bobo.goods.dao.GoodsMapper">
+
+	<resultMap type="goods" id="goodsResultMap">
+		<id column="gid" property="gid" />
+		<result column="gname" property="gname" />
+		<result column="gename" property="gename" />
+		<result column="gsize" property="gsize" />
+		<result column="price" property="price" />
+		<result column="num" property="num" />
+		<result column="bq" property="bq" />
+		<result column="zhuangt" property="zhuangt" />
+		<result column="url" property="url" />
+		<!--封装品牌 -->
+		<association property="pinp" javaType="pinp">
+			<id column="pid" property="pid" />
+			<result column="pname" property="pname" />
+		</association>
+		<!--封装类型 -->
+		<association property="type" javaType="type">
+			<id column="tid" property="tid" />
+			<result column="tname" property="tname" />
+		</association>
+
+	</resultMap>
+	
+	
+	<select id="selects" resultMap="goodsResultMap">
+		select d.*,p.pname,t.tname from t_goods d left join pinp p on d.pid =p.pid
+		left join type t on d.tid =t.tid
+		<where>
+		 <if test="gname!=null and gname!=''">
+		  g.gname like "%"#{gname}"%"
+		 
+		 </if>
+		
+		</where>
+
+
+	</select>
+	
+	
+	
+	<insert id="add">
+	insert into t_goods (gname,price,url) values(#{gname},#{price},#{url})
+	
+	
+	</insert>
+</mapper>
