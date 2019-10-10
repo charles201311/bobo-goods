@@ -21,6 +21,7 @@ import com.bobo.goods.util.PageUtil;
 import com.github.pagehelper.PageInfo;
 //aaaaaaaaaaaaaaaaa 1704E 
 //cccccccccccccc  1706D 
+//bbbbbbbbbbbbbbbbb 7104E 
 @Controller
 public class GoodsController {
 	
