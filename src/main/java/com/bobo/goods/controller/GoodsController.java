@@ -19,7 +19,7 @@ import com.bobo.goods.domain.Goods;
 import com.bobo.goods.service.GoodsService;
 import com.bobo.goods.util.PageUtil;
 import com.github.pagehelper.PageInfo;
-
+//aaaaaaaaaaaaaaaaa 1704E 
 @Controller
 public class GoodsController {
 	
